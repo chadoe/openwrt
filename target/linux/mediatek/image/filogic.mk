@@ -695,6 +695,22 @@ define Device/comfast_cf-e393ax
 endef
 TARGET_DEVICES += comfast_cf-e393ax
 
+define Device/comfast_cf-wr630ax
+  DEVICE_VENDOR := COMFAST
+  DEVICE_MODEL := CF-WR630AX
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_DTS := mt7981b-comfast-cf-wr630ax
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware
+  SUPPORTED_DEVICES += comfast,cf-wr630ax
+  UBINIZE_OPTS := -E 5
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_IN_UBI := 1
+  IMAGE_SIZE := 65536k
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += comfast_cf-wr630ax
+
 define Device/confiabits_mt7981
   DEVICE_VENDOR := Confiabits
   DEVICE_MODEL := MT7981
