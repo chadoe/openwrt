@@ -67,6 +67,9 @@ cudy,wr3000h-v1)
 elecom,wrc-x3000gs3)
 	ucidef_set_led_netdev "wan" "wan" "green:wan" "wan"
 	;;
+fenvi,ax3000-extender)
+	ucidef_set_led_netdev "eth_activity_amber" "Ethernet" "fenvi:amber:wan" "eth0" "link tx rx"
+	;;
 glinet,gl-x3000|\
 glinet,gl-xe3000)
 	ucidef_set_led_default "power" "POWER" "green:power" "1"

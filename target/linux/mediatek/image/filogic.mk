@@ -1016,6 +1016,24 @@ define Device/elecom_wrc-x3000gs3
 endef
 TARGET_DEVICES += elecom_wrc-x3000gs3
 
+define Device/fenvi_ax3000-extender
+  DEVICE_VENDOR := Fenvi
+  DEVICE_MODEL := AX3000-Extender
+  DEVICE_DTS := mt7981b-fenvi-ax3000-extender
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware
+  SUPPORTED_DEVICES := fenvi,ax3000-extender
+  UBINIZE_OPTS := -E 5
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  IMAGE_SIZE := 65536k
+  KERNEL_IN_UBI := 1
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += fenvi_ax3000-extender
+
 define Device/gatonetworks_gdsp
   DEVICE_VENDOR := GatoNetworks
   DEVICE_MODEL := gdsp
